@@ -7,4 +7,3 @@ for username in usernames:
         print('Hello ' + username + ', would you like a status report?')
     else:
         print('Welcome ' + username)
-
