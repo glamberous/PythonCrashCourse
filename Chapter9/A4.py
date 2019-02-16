@@ -1,22 +1,30 @@
 
-class User():
-    def __init__(self, first_name, last_name, job_title, favorite_quote):
-        self.first = first_name
-        self.last = last_name
-        self.job = job_title
-        self.quote = favorite_quote
+class Restaurant():
+    def __init__(self, restaurant_name, cuisine_type):
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+        self.number_served = 0
+
+    def describe_restaurant(self):
+        print(self.restaurant_name + " has the best " + self.cuisine_type + " food!")
     
-    def describe_user(self):
-        print(self.first + ' ' + self.last + " is a " + self.job)
-        print('Favorite quote: "' + self.quote + '"')
+    def open_restaurant(self):
+        print("The restaurant is open!")
 
-    def greet_user(self):
-        print("Hello, " + self.first + "! How are you today?")
+    def set_number_served(self, new_number):
+        self.number_served = new_number
+    
+    def increment_number_served(self):
+        self.number_served += 1
 
-user1 = User('Sim', 'Homersin', 'nuclear plant controller', 'Doh!')
-user2 = User('Charles', 'Tool', 'Robot', 'beep boop')
-user3 = User('Grant', 'Lamb', 'Tester', 'Never give up! Never surrender!')
+restaurant = Restaurant("Juan's burritos", "Mexican")
+print(restaurant.number_served)
+restaurant.number_served = 2
+print(restaurant.number_served)
 
-user1.describe_user()
-user2.describe_user()
-user3.describe_user()
+restaurant.set_number_served(4)
+print(restaurant.number_served)
+
+restaurant.increment_number_served()
+print(restaurant.number_served)
+
