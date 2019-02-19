@@ -37,23 +37,23 @@ class FavoriteNumbers():
     def print(self):
         print(self.guests)
 
-    def recognize_name(self, name):
+    def find(self, name):
         for guest in self.guests:
             if guest['name'] == name:
-                return True
-        return False
+                return guest
+        else:
+            return None
 
 guest_book = FavoriteNumbers()
 guest_book.load()
 guest_book.welcome_user()
 while True:
     name = guest_book.get_name()
+    guest = guest_book.find(name)
     if name == 'q':
         break
-    elif guest_book.recognize_name(name):
-        for guest in guest_book.guests:
-            if guest['name'] == name:
-                print("Your favorite number is " + guest['fav_num'] + "!")
+    elif guest:
+        print("Your favorite number is " + guest['fav_num'] + "!")
     else:
         guest_book.set_new_user(name)
 guest_book.print()
